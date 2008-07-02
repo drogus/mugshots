@@ -2,6 +2,7 @@
 // was used, jQuery is passed as argument in document ready
 // so we can name it $
 jQuery(function($) {
+  $.lightBoxFu.initialize({imagesPath: '/images/', stylesheetsPath: '/stylesheets/'});
   //enable lightbox
   $('#mugshots li a').lightBox(); 
     
@@ -23,7 +24,8 @@ jQuery(function($) {
       jQuery('#size').html(parseInt(upload.size/1024)+" kB");
       jQuery('#percent').html(upload.percents+"%");
     },
-    interval: 2000
+    interval: 2000,
+    preloadImages: ["/images/overlay.png", "/images/ajax-loader.gif"]
   });
   
   $('.multi-file').each(function() {

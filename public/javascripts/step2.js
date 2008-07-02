@@ -64,6 +64,7 @@ jQuery(function($) {
       // lightbox with error after 2 seconds
       window.setTimeout($.lightBoxFu.close, 2000);
     },
-    interval: 2000
+    interval: 2000,
+    preloadImages: ["/images/overlay.png", "/images/ajax-loader.gif"]
   });
 });

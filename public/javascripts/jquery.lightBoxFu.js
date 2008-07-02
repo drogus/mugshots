@@ -49,10 +49,9 @@
           $('#lOverlay').css({display: 'table'});
           $('#lOverlay #lWindow').css({display: 'table-cell'});
       }
-      $('#lightboxfu').hide();
       $('#lOverlay').css({position: 'fixed', top: 0, left: 0, width: "100%", height: "100%"});
       $('#lOverlay #lWindow').css({'vertical-align': 'middle'});
-      $('#lOverlay #lInner').css({width: '300px', 'background-color': '#fff', '-webkit-border-radius': '10px;', '-moz-border-radius': '10px', 'max-height': '350px', margin: '0 auto', padding: '15px', overflow: 'auto'});
+      $('#lOverlay #lInner').css({width: '300px', 'background-color': '#fff', '-webkit-border-radius': '10px', '-moz-border-radius': '10px', 'max-height': '350px', margin: '0 auto', padding: '15px', overflow: 'auto'});
     }
   });
   
