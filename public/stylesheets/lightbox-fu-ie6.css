@@ -1,3 +1,7 @@
+#lightboxfu {
+  display: none;
+}
+
 #lOverlay {
 	background: none;
 	-ieh: expression(
