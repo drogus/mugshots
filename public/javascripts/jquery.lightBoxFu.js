@@ -16,7 +16,6 @@
 	  	options = {stylesheetsPath: '/stylesheets/', imagesPath: '/images/'};
 	  	jQuery.extend(options, o);
         html = '<div id="lightboxfu"><div id="lOverlay"><div id="lWindow"><div id="lInner"></div></div></div></div>';
-		html += '<link href="'+options.stylesheetsPath+'lightbox-fu.css" media="screen" rel="Stylesheet" type="text/css" />';
 		if ($.browser.msie && $.browser.version == '6.0') {
 			html += '<link rel="stylesheet" type="text/css" href="'+options.stylesheetsPath+'lightbox-fu-ie6.css" />';
 			$('body').css('background', 'url('+options.imagesPath+'blank.gif) fixed');
@@ -27,6 +26,7 @@
 		if(!$.browser.msie) {
 			$('#lOverlay').css('background', 'url('+options.imagesPath+'overlay.png) fixed');
 		}
+	$.lightBoxFu.appendStyle();
       }
     },
     open: function(options) {
@@ -42,6 +42,12 @@
     },
     close: function() {
       $('#lightboxfu').hide();
+    },
+    appendStyle: function() {
+      $('#lightboxfu').css({display: 'none'});
+      $('#lOverlay').css({display: 'table', position: 'fixed', top: 0, left: 0, width: "100%", height: "100%"});
+      $('#lOverlay #lWindow').css({display: 'table-cell', 'vertical-align': 'middle'});
+      $('#lOverlay #lInner').css({width: '300px', 'background-color': '#fff', '-webkit-border-radius': '10px;', '-moz-border-radius': '10px', 'max-height': '350px', margin: '0 auto', padding: '15px', overflow: 'auto'});
     }
   });
   
