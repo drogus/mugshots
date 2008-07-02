@@ -8,3 +8,4 @@ vendor/plugins/rspec/.git
 vendor/plugins/rspec-rails/.git
 public/mugshots
 tmp/*
+db/schema.rb
