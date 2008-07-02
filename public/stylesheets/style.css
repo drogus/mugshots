@@ -1,0 +1,45 @@
+body {
+    background-color: #335585;
+    padding: 40px;
+}
+
+#content {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+#mugshots li {
+    list-style-type: none;
+    float: left;
+    padding: 10px;
+    display: inline;
+    width: 100px;
+    height: 100px;
+}
+
+#mugshots li a img {
+  border: none;
+}  
+.clear {
+    clear: both;
+}
+
+
+
+/* UPLOAD */
+.bar {
+
+}
+
+#progress {
+  margin: 8px;
+  width: 220px;
+  height: 19px;
+}
+
+#progressbar {
+  background: url('/images/ajax-loader.gif') no-repeat;
+  width: 0px;
+  height: 19px;
+}

@@ -1,0 +1,81 @@
+8
+
+dir
+343
+svn+ssh://tion.pl/var/svn/repos/otherside/archeologica/trunk/public/images/lightbox
+svn+ssh://tion.pl/var/svn/repos/otherside
+
+
+
+2008-02-01T16:35:45.773191Z
+276
+drogus
+
+
+svn:special svn:externals svn:needs-lock
+
+lightbox-btn-prev.gif
+file
+
+
+
+
+2007-10-03T21:12:22.000000Z
+5a9118de4ef6226473190d6e82f6d80d
+2008-02-01T16:35:45.773191Z
+276
+drogus
+has-props
+
+lightbox-btn-next.gif
+file
+
+
+
+
+2007-10-03T21:12:22.000000Z
+23414965ebe526012e473c1d4d65d4e7
+2008-02-01T16:35:45.773191Z
+276
+drogus
+has-props
+
+lightbox-ico-loading.gif
+file
+
+
+
+
+2007-10-03T21:12:22.000000Z
+b5fe8df97005341f898e2cf84e68de01
+2008-02-01T16:35:45.773191Z
+276
+drogus
+has-props
+
+lightbox-btn-close.gif
+file
+
+
+
+
+2007-10-03T21:12:22.000000Z
+2c38ae5be85141bf8867c9523f4bc357
+2008-02-01T16:35:45.773191Z
+276
+drogus
+has-props
+
+lightbox-blank.gif
+file
+
+
+
+
+2006-03-30T16:20:38.000000Z
+fc94fb0c3ed8a8f909dbc7630a0987ff
+2008-02-01T16:35:45.773191Z
+276
+drogus
+has-props
+

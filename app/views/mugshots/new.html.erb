@@ -1,0 +1,12 @@
+<%= error_messages_for :object => @mugshots %>
+
+<% form_for(:mugshot, :url => mugshots_path(@main_js), 
+                      :html => { :multipart => true, :class => "progress" }) do |f| -%>
+  <p>
+    <label for="mugshot">Upload A Mugshot:</label>
+    <%= f.file_field :uploaded_data, :class => 'multi-file' %>
+  </p>
+  <p>
+    <%= submit_tag 'Create' %>
+  </p>
+<% end -%>

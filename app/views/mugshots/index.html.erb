@@ -1,0 +1,10 @@
+<h1>Most Wanted</h1>
+<ul id="mugshots">  
+  <%= render :partial => 'mugshot', :collection => @mugshots %>
+</ul>
+
+<div class="clear"></div>
+
+<p>
+  <%= link_to "New mugshot", new_mugshot_path(@main_js), :id => "new_mugshot_link" %>
+</p>

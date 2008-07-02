@@ -1,0 +1,9 @@
+nbproject
+config/database.yml
+log/*
+tmp/pids/*
+tmp/sessions/*
+tmp/cache/*
+vendor/plugins/rspec/.git
+vendor/plugins/rspec-rails/.git
+public/mugshots
