@@ -4,12 +4,12 @@ jQuery(function($) {
   $('#mugshots li a').lightBox(); 
           
   $('.multi-file').livequery(function () { 
-    el = $(this);
+    var el = $(this);
     el.attr('name', el.attr('name')+'[]').removeClass('multi-file').MultiFile(); 
   });
 
   /* create upload form with multifile instead of new mugshot link */
-  var form = $('<form method="post" enctype="multipart/form-data" class="progress ajax" action="/mugshots">');
+  var form = $('<form method="post" enctype="multipart/form-data" class="progress ajax" action="/mugshots"/>');
   form.append('<p><label for="mugshot_uploaded_data">Upload mugshot: </label></p>');
   $('<input type="file" class="multi-file" id="mugshot_uploaded_data" size="30" name="mugshot[uploaded_data]"/>')
       .appendTo(form).wrap($('<p>'));
