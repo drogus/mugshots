@@ -7,9 +7,38 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *
  */
-
 (function($) {
   $.fn.uploadProgress = function(options) {
+	$(function() {
+		/* tried to add iframe after submit (to not always load it) but it won't work. 
+		safari can't get scripts properly while submitting files */
+		if($.browser.safari && top.document == document) {
+			/* iframe to send ajax requests in safari 
+			   thanks to Michele Finotto for idea */
+			iframe = document.createElement('iframe');
+			iframe.name = "progressFrame";
+			$(iframe).css({width: '0', height: '0', position: 'absolute', top: '-3000px'});
+			document.body.appendChild(iframe);
+			
+			var d = iframe.contentWindow.document;
+			d.open();
+			/* weird - safari won't load scripts without this lines... */
+			d.write('<html><head></head><body></body></html>');
+			d.close();
+			
+			var b = d.body;
+			var s = d.createElement('script');
+			s.src = options.jqueryPath;
+			/* must be sure that jquery is loaded */
+			s.onload = function() {
+				var s1 = d.createElement('script');
+				s1.src = options.uploadProgressPath;
+				b.appendChild(s1);
+			}
+			b.appendChild(s);
+		}
+	});
+  
 	return this.each(function(){
 		$(this).bind('submit', function() {
 			var uuid = "";
@@ -22,6 +51,10 @@
 				start: function() {},
 				uploading: function() {},
 				complete: function() {},
+				success: function() {},
+				error: function() {},
+				uploadProgressPath: '/javascripts/jquery.js',
+				jqueryPath: '/javascripts/jquery.uploadProgress.js',
                                 timer: ""
 			}, options);
                         /* update uuid */
@@ -37,8 +70,8 @@
                         } else {
 			  $(this).attr("action", jQuery(this).attr("action") + "?X-Progress-ID=" + uuid);
 			}
-			
-			options.timer = window.setInterval(function() { $.uploadProgress(this, options) }, options.interval);
+			var uploadProgress = $.browser.safari ? progressFrame.jQuery.uploadProgress : jQuery.uploadProgress;
+			options.timer = window.setInterval(function() { uploadProgress(this, options) }, options.interval);
 		});
 	});
   };
@@ -56,13 +89,23 @@ jQuery.uploadProgress = function(e, options) {
 				upload = $.extend({
 				  percents: Math.floor((upload.received / upload.size)*1000)/10
 				}, upload);
-              $(options.progressBar).width(Math.floor(upload.percents) + '%');
-			  options.uploading(upload);
+				
+				var bar = $.browser.safari ? $(options.progressBar, parent.document) : $(options.progressBar);
+              			bar.width(Math.floor(upload.percents) + '%');
+			  	options.uploading(upload);
 			}
-			/* we are done, stop the interval */
-			if (upload.state == 'done') {
+			
+			if (upload.state == 'done' || upload.state == 'error') {
 				window.clearTimeout(options.timer);
 				options.complete(upload);
+			}
+			
+			if (upload.state == 'done') {
+				options.success(upload);
+			}
+			
+			if (upload.state == 'error') {
+				options.error(upload);
 			}
 		}
 	});
