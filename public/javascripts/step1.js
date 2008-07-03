@@ -25,6 +25,9 @@ jQuery(function($) {
       jQuery('#percent').html(upload.percents+"%");
     },
     interval: 2000,
+    /* if we are using images it's good to preload them, safari has problems with
+       downloading anything after hitting submit button. these are images for lightBoxFu
+       and progress bar */
     preloadImages: ["/images/overlay.png", "/images/ajax-loader.gif"]
   });
   

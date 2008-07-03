@@ -2,6 +2,7 @@
 // was used, jQuery is passed as argument in document ready
 // so we can name it $
 jQuery(function($) {
+  $.lightBoxFu.initialize({imagesPath: '/images/', stylesheetsPath: '/stylesheets/'});
   // add upload progress to our form
   $('form.progress').uploadProgress({
     start:function(){
@@ -20,6 +21,10 @@ jQuery(function($) {
       jQuery('#size').html(parseInt(upload.size/1024)+" kB");
       jQuery('#percent').html(upload.percents+"%");
     },
-    interval: 2000
+    interval: 2000,
+    /* if we are using images it's good to preload them, safari has problems with
+       downloading anything after hitting submit button. these are images for lightBoxFu
+       and progress bar */
+    preloadImages: ["/images/overlay.png", "/images/ajax-loader.gif"]
   });
 });
